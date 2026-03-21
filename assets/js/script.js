@@ -190,4 +190,15 @@
     }
   }
 
+  /* ---------- Páscoa 2026 — Auto-expiry (6 de abril) ---------- */
+  const PASCOA_EXPIRY = new Date('2026-04-06T00:00:00-03:00');
+  if (new Date() > PASCOA_EXPIRY) {
+    // Remove nav links, banners and footer links tagged with data-pascoa
+    document.querySelectorAll('[data-pascoa]').forEach(el => el.remove());
+    // If visitor is on pascoa.html after expiry, redirect to home
+    if (window.location.pathname.replace(/\//g, '').endsWith('pascoa.html')) {
+      window.location.replace('index.html');
+    }
+  }
+
 })();

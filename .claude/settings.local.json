@@ -4,7 +4,9 @@
       "Bash(mv styles.css assets/css/styles.css)",
       "Bash(mv script.js assets/js/script.js)",
       "Bash(mv logo-fundo-roxo-alta.png assets/images/logo-fundo-roxo-alta.png)",
-      "Bash(mv logo-fundo-rosa-alta.png assets/images/logo-fundo-rosa-alta.png)"
+      "Bash(mv logo-fundo-rosa-alta.png assets/images/logo-fundo-rosa-alta.png)",
+      "Bash(powershell -Command \":*)",
+      "Bash(pdftotext \"c:/Users/caiot/OneDrive/Documentos/GitHub/Sabores da Dori/assets/Cardápio de Páscoa 2026 - Final.pdf\" -)"
     ]
   }
 }
