@@ -1,0 +1,16 @@
+{
+  "name": "Sabores da Dori",
+  "short_name": "Dori",
+  "description": "Confeitaria artesanal em Tatuapé, São Paulo",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAF5E8",
+  "theme_color": "#3E1E35",
+  "icons": [
+    {
+      "src": "/assets/favicon/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

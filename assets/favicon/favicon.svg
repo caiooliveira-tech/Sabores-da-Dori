@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="32" fill="#3E1E35"/>
+  <!-- Stylised "D" built from a cake-like arch + stem -->
+  <!-- Vertical stem -->
+  <rect x="18" y="16" width="5" height="32" rx="2.5" fill="#FAF5E8"/>
+  <!-- Arch (right half-circle) -->
+  <path d="M23 16 Q50 16 50 32 Q50 48 23 48" fill="none" stroke="#FAF5E8" stroke-width="5" stroke-linecap="round"/>
+  <!-- Honey accent dot -->
+  <circle cx="42" cy="32" r="4" fill="#CF8524"/>
+</svg>

@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mv styles.css assets/css/styles.css)",
+      "Bash(mv script.js assets/js/script.js)",
+      "Bash(mv logo-fundo-roxo-alta.png assets/images/logo-fundo-roxo-alta.png)",
+      "Bash(mv logo-fundo-rosa-alta.png assets/images/logo-fundo-rosa-alta.png)"
+    ]
+  }
+}
