@@ -2146,7 +2146,7 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   gap: 48px;
   align-items: center;
 }
-.pascoa-custom__content { text-align: left; }
+.pascoa-custom__content { text-align: left; min-width: 0; }
 .pascoa-custom__photo {
   border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
   overflow: hidden;
@@ -2530,12 +2530,14 @@ textarea.form-control { min-height: 120px; resize: vertical; }
   .pascoa-products-grid { grid-template-columns: 1fr 1fr; }
   .pascoa-trad-grid { grid-template-columns: 1fr; }
   .pascoa-info-grid { grid-template-columns: 1fr; }
-  .pascoa-custom { padding: 32px 24px; grid-template-columns: 1fr; }
+  .pascoa-custom { padding: 32px 20px; grid-template-columns: 1fr; overflow: hidden; }
   .pascoa-custom__photo { display: none; }
-  .pascoa-custom__content { text-align: center; }
+  .pascoa-custom__content { text-align: center; min-width: 0; width: 100%; }
   .pascoa-custom__grid { grid-template-columns: 1fr; }
-  .pascoa-custom__prices { justify-content: center; }
-  .pascoa-custom__prices { flex-direction: column; align-items: center; }
+  .pascoa-custom__col li { white-space: normal; overflow-wrap: break-word; }
+  .pascoa-custom__prices { flex-direction: column; align-items: center; justify-content: center; gap: 12px; }
+  .pascoa-custom__price-item { width: 100%; max-width: 240px; }
+  .pascoa-custom .btn { width: 100%; justify-content: center; white-space: normal; text-align: center; }
   .pascoa-hero__ctas { flex-direction: column; align-items: flex-start; }
   .pascoa-egg--1 { width: 100px; height: 134px; }
   .pascoa-egg--4 { display: none; }
