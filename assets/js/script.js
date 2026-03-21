@@ -110,24 +110,45 @@
     slider.addEventListener('mouseup', () => { slider.style.userSelect = ''; });
   }
 
-  /* ---------- Contact Form ---------- */
+  /* ---------- Contact Form (Web3Forms) ---------- */
   const form = document.getElementById('contactForm');
   if (form) {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
-      const btn = form.querySelector('[type="submit"]');
+      const btn       = form.querySelector('[type="submit"]');
       const successEl = document.getElementById('formSuccess');
-      btn.disabled = true;
+      const errorEl   = document.getElementById('formError');
+
+      btn.disabled    = true;
       btn.textContent = 'Enviando...';
-      setTimeout(() => {
-        form.reset();
-        btn.disabled = false;
-        btn.textContent = 'Enviar mensagem';
-        if (successEl) {
-          successEl.classList.add('show');
-          setTimeout(() => successEl.classList.remove('show'), 6000);
+      if (successEl) successEl.classList.remove('show');
+      if (errorEl)   errorEl.classList.remove('show');
+
+      try {
+        const res  = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body:   new FormData(form),
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          form.reset();
+          if (successEl) {
+            successEl.classList.add('show');
+            setTimeout(() => successEl.classList.remove('show'), 7000);
+          }
+        } else {
+          throw new Error(data.message || 'Falha no envio');
         }
-      }, 1400);
+      } catch (_err) {
+        if (errorEl) {
+          errorEl.classList.add('show');
+          setTimeout(() => errorEl.classList.remove('show'), 7000);
+        }
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = 'Enviar mensagem';
+      }
     });
   }
 

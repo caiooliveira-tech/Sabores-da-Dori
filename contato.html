@@ -114,6 +114,14 @@
             <p class="form-sub">Preencha o formulário e responderemos em breve. Para pedidos urgentes, prefira o WhatsApp.</p>
 
             <form id="contactForm" novalidate aria-label="Formulário de contato">
+              <!-- Web3Forms — SETUP: gerar chave em web3forms.com com o e-mail adriana@saboresdadori.com.br -->
+              <input type="hidden" name="access_key" value="SEU_ACCESS_KEY_AQUI" />
+              <input type="hidden" name="subject" value="Nova mensagem pelo site — Sabores da Dori" />
+              <input type="hidden" name="from_name" value="Site Sabores da Dori" />
+              <input type="hidden" name="redirect" value="false" />
+              <!-- Honeypot anti-spam -->
+              <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+
               <div class="form-row">
                 <div class="form-group">
                   <label for="nome" class="form-label">Nome *</label>
@@ -148,7 +156,8 @@
               </div>
 
               <button type="submit" class="btn btn--primary btn--lg" style="width:100%;">Enviar mensagem</button>
-              <div id="formSuccess" class="form-success" role="alert">✓ Obrigada pelo envio! Em breve entrarei em contato.</div>
+              <div id="formSuccess" class="form-success" role="alert" aria-live="polite">Obrigada pelo envio! Em breve entrarei em contato.</div>
+              <div id="formError" class="form-error" role="alert" aria-live="polite">Não foi possível enviar. Por favor, tente novamente ou entre em contato pelo WhatsApp.</div>
             </form>
           </div>
 
