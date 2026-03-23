@@ -1,6 +1,10 @@
 /* ============================================================
    SABORES DA DORI — JavaScript v2
    ============================================================ */
+
+/* ---------- dataLayer — inicialização (GTM) ---------- */
+window.dataLayer = window.dataLayer || [];
+
 (function () {
   'use strict';
 
@@ -188,6 +192,36 @@
         parallaxEl.style.transform = `translateY(${y * 0.08}px)`;
       }, { passive: true });
     }
+  }
+
+  /* ---------- Tracking de eventos — dataLayer (GTM/GA4/Google Ads) ---------- */
+
+  // Cliques em links do WhatsApp (conversão principal)
+  document.querySelectorAll('a[href*="wa.me"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var label = link.closest('[class*="pascoa-card"]')
+        ? (link.closest('.pascoa-card__body')?.querySelector('.pascoa-card__name')?.textContent?.trim() || 'Páscoa')
+        : link.textContent.trim() || 'WhatsApp';
+      var page = window.location.pathname.split('/').pop() || 'home';
+      window.dataLayer.push({
+        event: 'whatsapp_click',
+        event_category: 'Conversao',
+        event_label: label,
+        page_context: page
+      });
+    });
+  });
+
+  // Envio do formulário de contato
+  var contactForm = document.querySelector('form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function () {
+      window.dataLayer.push({
+        event: 'form_submit',
+        event_category: 'Conversao',
+        event_label: 'Formulario de Contato'
+      });
+    });
   }
 
   /* ---------- Páscoa 2026 — Auto-expiry (6 de abril) ---------- */
